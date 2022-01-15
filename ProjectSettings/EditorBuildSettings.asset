@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/labEscapeRoomScene.unity
+    guid: 99e1455633423ad47a5bed9186b3a14f
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 9387da50b2ed91e458bb557bc93679d4, type: 2}
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 26489f51eb92d8845989abfe52120bb6, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: dfa80123cd9ae424a9db9f12117b5644, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: bcacbedfcfd2e07499e4280bc66904d6, type: 2}
