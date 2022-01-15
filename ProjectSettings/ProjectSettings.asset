@@ -135,7 +135,16 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 5033255640719518668, guid: 26489f51eb92d8845989abfe52120bb6, type: 2}
+  - {fileID: 11400000, guid: 9387da50b2ed91e458bb557bc93679d4, type: 2}
+  - {fileID: 11400000, guid: bcacbedfcfd2e07499e4280bc66904d6, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -152,7 +161,8 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.DefaultCompany.vr-lab-escape-room
   buildNumber:
     Standalone: 0
     iPhone: 0
