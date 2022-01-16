@@ -22,7 +22,7 @@ public class MenuController : MonoBehaviour
 
     public void StartBtn()
     {
-        // TODO: Destruct Main Menu
+        // TODO: Destroy Main Menu
         // TODO: Enable OVR Player settings - "Enable Rotation" & "Enable Linear Move"
     }
 
