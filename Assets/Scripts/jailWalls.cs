@@ -7,6 +7,7 @@ public class jailWalls : MonoBehaviour
 {
     public GameObject west_brick;
     public GameObject west_ball;
+    public GameObject north_wall;
 
     // Start is called before the first frame update
     void Start()
