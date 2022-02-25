@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    public GameObject mainMenu;
+    public UnityEvent onStart;
+    public GameObject walls;
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            mainMenu.SetActive(false);
+            onStart.Invoke();
+        }
+
         if (Input.GetKeyDown(KeyCode.L))
         {
             SceneManager.LoadScene("LeaderboardScene");
@@ -39,5 +49,10 @@ public class MenuController : MonoBehaviour
         #else
                         Application.Quit();
         #endif
+    }
+
+    public void firstRiddle() 
+    {
+        walls.SetActive(true);
     }
 }
