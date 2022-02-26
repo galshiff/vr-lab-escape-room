@@ -7,12 +7,14 @@ public class jailWalls : MonoBehaviour
 {
     public GameObject west_brick;
     public GameObject west_ball;
-    public GameObject north_wall;
+
+    public ParticleSystem brickExplosionParticle;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,11 +22,17 @@ public class jailWalls : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            // TODO: Replace with explosion...
+            // Remove the brick
             west_brick.SetActive(false);
+
+            // Activate the explosion partical system event in the brick's location
+            brickExplosionParticle.gameObject.SetActive(true);
+            brickExplosionParticle.gameObject.transform.position = west_brick.transform.position;
+            brickExplosionParticle.Play();
+
             // TODO: Replace ball to special ball
+            // Reveal the ball
             west_ball.SetActive(true);
-            // onStart.Invoke();
         }
     }
 }

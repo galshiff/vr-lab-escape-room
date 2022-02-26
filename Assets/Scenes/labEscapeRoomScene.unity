@@ -18338,7 +18338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   west_brick: {fileID: 1107087967}
   west_ball: {fileID: 299354346}
-  north_wall: {fileID: 0}
+  brickExplosionParticle: {fileID: 1321851733}
 --- !u!1001 &842413852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25623,7 +25623,7 @@ Transform:
   m_GameObject: {fileID: 1120504343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.31565332, y: 0.31565332, z: 0.31565332}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 1321851734}
   m_RootOrder: 0
@@ -35681,7 +35681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1321851732
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -40521,7 +40521,7 @@ Transform:
   m_GameObject: {fileID: 1321851731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.9567797, y: 2.56, z: 43.177696}
-  m_LocalScale: {x: 0.24072151, y: 0.24072151, z: 0.24072151}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children:
   - {fileID: 1120504344}
   m_Father: {fileID: 0}
