@@ -15,13 +15,12 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            mainMenu.SetActive(false);
-            onStart.Invoke();
+            StartBtn();
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            SceneManager.LoadScene("LeaderboardScene");
+            LeaderboardtBtn();
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -34,6 +33,8 @@ public class MenuController : MonoBehaviour
     {
         // TODO: Destroy Main Menu
         // TODO: Enable OVR Player settings - "Enable Rotation" & "Enable Linear Move"
+        mainMenu.SetActive(false);
+        onStart.Invoke();
     }
 
     public void LeaderboardtBtn()
