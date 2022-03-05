@@ -24,12 +24,12 @@ public class buttonVR : MonoBehaviour
     {
         if (!isPressed)
         {
-            Debug.Log("Hara: ", other.gameObject);
             Vector3 btn_pos = btn.transform.localPosition;
             btn.transform.localPosition = new Vector3(btn_pos.x, btn_pos.y - 0.01f, btn_pos.z);
             presser = other.gameObject;
             onPress.Invoke();
-            sound.Play();
+            // sound.Play();
+            sound.PlayOneShot(sound.clip, 0.75f);
             isPressed = true;
         }
     }
