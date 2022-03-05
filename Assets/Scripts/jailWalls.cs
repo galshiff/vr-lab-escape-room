@@ -87,12 +87,6 @@ public class jailWalls : MonoBehaviour
                                             spike_ball.transform.position.y,
                                             spike_ball.transform.position.z);
 
-
-        GameObject brick = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        brick.transform.position = spike_ball.transform.position;
-        brick.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        brick.tag = "breakableBall";
-
         spike_ball.transform.position = new Vector3(-2.72f, 3.73f, 44.16f);
 
         // Enable ball gravity back

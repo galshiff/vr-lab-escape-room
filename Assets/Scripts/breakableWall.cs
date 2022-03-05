@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class breakableWall : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class breakableWall : MonoBehaviour
 
     float brickPivotDist;
     Vector3 brickPivot;
+
+    public UnityEvent onWinTriggr;
+    public GameObject PartyMonsterEndLevelWin;
 
     // Start is called before the first frame update
     void Start()
@@ -63,10 +67,10 @@ public class breakableWall : MonoBehaviour
         }
 
         ExplodeWall(initPos);
-
+        onWinTriggr.Invoke();
     }
 
-    void CreateBrick(int x, int y, int z, Vector3 initPos)
+        void CreateBrick(int x, int y, int z, Vector3 initPos)
     {
         // Generate new cube as brick
         GameObject brick = GameObject.CreatePrimitive(PrimitiveType.Cube);

@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEditor;
 
+
 [CustomEditor(typeof(firstRiddleSolver))]
 public class firstRiddleSolverEditor : Editor
 {
