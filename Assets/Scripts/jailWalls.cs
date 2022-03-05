@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class jailWalls : MonoBehaviour
 {
     public GameObject west_brick;
-    public GameObject west_ball;
+    public GameObject spike_ball;
 
     private bool activated = false;
     private int WALL_NUM = 4;
@@ -17,7 +17,11 @@ public class jailWalls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (Application.isEditor)
+        {
+            activated = true;
+            ActivateBreakWallsAfterTimeout();
+        }
     }
 
     // Update is called once per frame
@@ -31,7 +35,7 @@ public class jailWalls : MonoBehaviour
         if (gameObject.activeInHierarchy && !activated)
         {
             activated = true;
-            StartCoroutine(SetTimeout(5f));
+            ActivateBreakWallsAfterTimeout();
         }
     }
 
@@ -47,10 +51,15 @@ public class jailWalls : MonoBehaviour
 
         // TODO: Replace ball to special ball
         // Reveal the 
-        west_ball.SetActive(true);
+        spike_ball.SetActive(true);
     }
 
-    IEnumerator SetTimeout(float time)
+    public void ActivateBreakWallsAfterTimeout()
+    {
+        StartCoroutine(BreakWallsAfterTimeout(5f));
+    }
+
+    IEnumerator BreakWallsAfterTimeout(float time)
     {
         yield return new WaitForSeconds(time);
         // Freeze walls position
@@ -62,5 +71,25 @@ public class jailWalls : MonoBehaviour
 
         }
         RevealBallInsideWall();
+        yield return new WaitForSeconds(2);
+        breakWallByBall();
+    }
+
+    public void breakWallByBall()
+    {
+        // Disable ball gravity
+        spike_ball.GetComponent<Rigidbody>().useGravity = false;
+
+        // Move on the X axis
+        GameObject ball = spike_ball.transform.GetChild(0).gameObject;
+
+        spike_ball.transform.position = new Vector3(spike_ball.transform.position.x - 1f,
+                                            spike_ball.transform.position.y,
+                                            spike_ball.transform.position.z);
+
+        spike_ball.transform.position = new Vector3(-2.72f, 3.73f, 44.16f);
+
+        // Enable ball gravity back
+        spike_ball.GetComponent<Rigidbody>().useGravity = true;
     }
 }
