@@ -9,6 +9,14 @@ public class MenuController : MonoBehaviour
     public GameObject mainMenu;
     public GameObject walls;
 
+    void Start()
+    {
+        if (Application.isEditor)
+        {
+            firstRiddle();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

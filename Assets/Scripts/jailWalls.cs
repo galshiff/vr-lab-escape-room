@@ -17,7 +17,11 @@ public class jailWalls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (Application.isEditor)
+        {
+            activated = true;
+            StartCoroutine(SetTimeout(5f));
+        }
     }
 
     // Update is called once per frame

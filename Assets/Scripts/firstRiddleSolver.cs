@@ -18,7 +18,6 @@ public class firstRiddleSolver : MonoBehaviour
      */
 
     public UnityEvent startRidle;
-    public UnityEvent warningPopUp;
     public GameObject walls;
     private bool isSceneSaved;
 
@@ -33,7 +32,6 @@ public class firstRiddleSolver : MonoBehaviour
         string sceneSavedPath = GetScenePath();
         isSceneSaved = EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), sceneSavedPath);
         Debug.Log("Saved Scene " + (isSceneSaved ? "Successful in" + sceneSavedPath : "Unsuccessful!"));
-        warningPopUp.Invoke();
         startRidle.Invoke();
         
         // Drop down the walls to the floor
