@@ -18,6 +18,7 @@ public class firstRiddleSolver : MonoBehaviour
      */
 
     public UnityEvent startRidle;
+    public UnityEvent breakWalls;
     public GameObject walls;
     private bool isSceneSaved;
 
@@ -40,9 +41,18 @@ public class firstRiddleSolver : MonoBehaviour
             GameObject wall = walls.gameObject.transform.GetChild(i).gameObject;
             applyGravity(wall);
         }
+        breakWalls.Invoke();
+
     }
 
-    void applyGravity(GameObject obj)
+    IEnumerator InvokeBreaklWallAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        // Freeze walls position
+        breakWalls.Invoke();
+    }
+
+        void applyGravity(GameObject obj)
     {
         float desiredYPos = -3.6f;
         while (obj.transform.position.y > desiredYPos)
