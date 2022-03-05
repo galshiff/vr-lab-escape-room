@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
     public GameObject mainMenu;
-    public UnityEvent onStart;
     public GameObject walls;
 
     // Update is called once per frame
@@ -33,8 +32,7 @@ public class MenuController : MonoBehaviour
     {
         // TODO: Destroy Main Menu
         // TODO: Enable OVR Player settings - "Enable Rotation" & "Enable Linear Move"
-        mainMenu.SetActive(false);
-        onStart.Invoke();
+        firstRiddle();
     }
 
     public void LeaderboardtBtn()
@@ -54,6 +52,7 @@ public class MenuController : MonoBehaviour
 
     public void firstRiddle() 
     {
+        mainMenu.SetActive(false);
         walls.SetActive(true);
     }
 }
