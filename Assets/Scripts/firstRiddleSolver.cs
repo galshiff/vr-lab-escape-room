@@ -19,6 +19,7 @@ public class firstRiddleSolver : MonoBehaviour
 
     public UnityEvent startRidle;
     public UnityEvent warningPopUp;
+    public GameObject walls;
     private bool isSceneSaved;
 
     public string GetScenePath()
@@ -34,13 +35,23 @@ public class firstRiddleSolver : MonoBehaviour
         Debug.Log("Saved Scene " + (isSceneSaved ? "Successful in" + sceneSavedPath : "Unsuccessful!"));
         warningPopUp.Invoke();
         startRidle.Invoke();
-
-
-        Physics.autoSimulation = false;
-        Physics.Simulate(Time.fixedDeltaTime);
-        Physics.autoSimulation = true;
+        
+        // Drop down the walls to the floor
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject wall = walls.gameObject.transform.GetChild(i).gameObject;
+            applyGravity(wall, wall.transform.position);
+        }
     }
 
+    void applyGravity(GameObject obj, Vector3 objPos)
+    {
+        float desiredYPos = -3.6f;
+        while (obj.transform.position.y > desiredYPos)
+        {
+            obj.transform.position = new Vector3(objPos.x, objPos.y - 0.0001f, objPos.z);
+        }
+    }
 
     public void ResetRidleState()
     {
