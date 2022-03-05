@@ -40,16 +40,18 @@ public class firstRiddleSolver : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             GameObject wall = walls.gameObject.transform.GetChild(i).gameObject;
-            applyGravity(wall, wall.transform.position);
+            applyGravity(wall);
         }
     }
 
-    void applyGravity(GameObject obj, Vector3 objPos)
+    void applyGravity(GameObject obj)
     {
         float desiredYPos = -3.6f;
         while (obj.transform.position.y > desiredYPos)
         {
-            obj.transform.position = new Vector3(objPos.x, objPos.y - 0.0001f, objPos.z);
+            obj.transform.position = new Vector3(obj.transform.position.x,
+                                                 obj.transform.position.y - 0.0001f,
+                                                 obj.transform.position.z);
         }
     }
 
