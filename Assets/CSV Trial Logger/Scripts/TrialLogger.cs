@@ -39,6 +39,7 @@ public class TrialLogger : MonoBehaviour {
 
     public void Initialize(string participantID, List<string> customHeader)
     {
+        outputFolder = Application.dataPath + "/StreamingAssets" + "/output";
         ppid = participantID;
         header = customHeader;
         InitHeader();
@@ -65,23 +66,31 @@ public class TrialLogger : MonoBehaviour {
         }
     }
 
-    public void StartTrial()
+    public void StartTrial(float time)
     {
         trialStarted = true;
         InitDict();
         trial["riddle"] = riddles[currentTrialNumber];
         currentTrialNumber += 1;
         trial["userID"] = ppid;
-        trial["start_time"] = Time.time.ToString();
+        if (time < 0)
+        {
+            time = Time.time;
+        }
+        trial["start_time"] = time.ToString();
     }
 
-    public void EndTrial()
+    public void EndTrial(float time)
     {
         if (output != null && dataOutputPath != null)
         {
             if (trialStarted)
             {
-                trial["end_time"] = Time.time.ToString();
+                if (time < 0)
+                {
+                    time = Time.time;
+                }
+                trial["end_time"] = time.ToString();
                 output.Add(FormatTrialData());
                 trialStarted = false;
             }
@@ -89,8 +98,6 @@ public class TrialLogger : MonoBehaviour {
 
         }
         else Debug.LogError("Error ending trial - TrialLogger was not initialsed properly");
-     
-
     }
 
     private string FormatTrialData()
@@ -110,7 +117,6 @@ public class TrialLogger : MonoBehaviour {
         // int totalGameTime = user.times[5] - user.times[0];
         // user.times[user.time_idx] = totalGameTime;
         // saveDataToTrial();
-
         if (output != null && dataOutputPath != null)
         {
             File.WriteAllLines(dataOutputPath, output.ToArray());
