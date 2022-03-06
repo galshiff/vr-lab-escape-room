@@ -2626,6 +2626,7 @@ GameObject:
   - component: {fileID: 71160938}
   - component: {fileID: 71160937}
   - component: {fileID: 71160939}
+  - component: {fileID: 71160940}
   m_Layer: 0
   m_Name: LocomotionController
   m_TagString: Untagged
@@ -2659,15 +2660,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcbed738e5f16548bc6b4284038f7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableMovementDuringReady: 1
+  EnableMovementDuringReady: 0
   EnableMovementDuringAim: 0
   EnableMovementDuringPreTeleport: 0
-  EnableMovementDuringPostTeleport: 1
-  EnableRotationDuringReady: 1
+  EnableMovementDuringPostTeleport: 0
+  EnableRotationDuringReady: 0
   EnableRotationDuringAim: 0
   EnableRotationDuringPreTeleport: 0
-  EnableRotationDuringPostTeleport: 1
-  TeleportDestinationPrefab: {fileID: 114000013141257940, guid: 1b474618c4fc5f54e8a8b803c8352c7d, type: 3}
+  EnableRotationDuringPostTeleport: 0
+  TeleportDestinationPrefab: {fileID: 1635598315374099856, guid: 4f533af9e63e3ad45a99d44b9274f088, type: 3}
   TeleportDestinationLayer: 11
   AimCollisionType: 0
   UseCharacterCollisionData: 0
@@ -2700,14 +2701,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4133858333ed264ebae0d70265b7b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AimButton: 67108864
-  TeleportButton: 67108864
+  AimButton: 4
+  TeleportButton: 4096
   FastTeleport: 0
-  LeftHand: {fileID: 0}
+  LeftHand: {fileID: 529036367}
   RightHand: {fileID: 529036366}
-  InputMode: 1
+  InputMode: 2
   AimingController: 2
-  CapacitiveAimAndTeleportButton: 4
+  CapacitiveAimAndTeleportButton: 5
   ThumbstickTeleportThreshold: 0.5
 --- !u!114 &71160934
 MonoBehaviour:
@@ -2757,7 +2758,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71160929}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39fbe3faa8f659944b47b2bb36927a5d, type: 3}
   m_Name: 
@@ -2794,6 +2795,54 @@ MonoBehaviour:
   Gravity: -9.8
   AimVelocity: 1
   AimStep: 1
+--- !u!114 &71160940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71160929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ac96eeca5eff442ba798f7bfc4f002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fader: {fileID: 2128687936}
+  TransitionDuration: 0.5
+  TeleportDelay: 0.5
+  FadeLevels:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &73049164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12312,6 +12361,11 @@ Transform:
 --- !u!4 &529036366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4471613377008970, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+  m_PrefabInstance: {fileID: 529036356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &529036367 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4188412984752900, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
   m_PrefabInstance: {fileID: 529036356}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &529036370 stripped
@@ -62087,6 +62141,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4926591831143164, guid: dad5ac76e863a834aa3d74b266e53f15, type: 3}
   m_PrefabInstance: {fileID: 2127257675}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2128687936 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11414578, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+  m_PrefabInstance: {fileID: 529036356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8e1d778abf442e4bec449c360e9e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2132476431
 PrefabInstance:
   m_ObjectHideFlags: 0
