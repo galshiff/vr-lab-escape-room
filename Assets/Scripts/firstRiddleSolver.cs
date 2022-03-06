@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
+using UnityEditor;
+// using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -24,14 +24,15 @@ public class firstRiddleSolver : MonoBehaviour
 
     public string GetScenePath()
     {
-        string[] scenePath = SceneManager.GetActiveScene().path.Split(char.Parse("/"));
-        return string.Join("/", scenePath);
+        /*        string[] scenePath = EditorSceneManager.GetActiveScene().path.Split(char.Parse("/"));
+                return string.Join("/", scenePath);*/
+        return "a";
     }
 
     public void SolveRidle()
     {
-        string sceneSavedPath = GetScenePath();
-        isSceneSaved = EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), sceneSavedPath);
+/*        string sceneSavedPath = GetScenePath();
+        isSceneSaved = EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(), sceneSavedPath);
         Debug.Log("Saved Scene " + (isSceneSaved ? "Successful in" + sceneSavedPath : "Unsuccessful!"));
         startRidle.Invoke();
         
@@ -41,7 +42,7 @@ public class firstRiddleSolver : MonoBehaviour
             GameObject wall = walls.gameObject.transform.GetChild(i).gameObject;
             applyGravity(wall);
         }
-        breakWalls.Invoke();
+        breakWalls.Invoke();*/
 
     }
 
@@ -55,17 +56,17 @@ public class firstRiddleSolver : MonoBehaviour
         void applyGravity(GameObject obj)
     {
         float desiredYPos = -3.6f;
-        while (obj.transform.position.y > desiredYPos)
+/*        while (obj.transform.position.y > desiredYPos)
         {
             obj.transform.position = new Vector3(obj.transform.position.x,
                                                  obj.transform.position.y - 0.0001f,
                                                  obj.transform.position.z);
-        }
+        }*/
     }
 
     public void ResetRidleState()
     {
-        string sceneSavedPath = GetScenePath();
+        /*string sceneSavedPath = GetScenePath();
         if (isSceneSaved && sceneSavedPath.Length > 0)
         {
             EditorSceneManager.OpenScene(GetScenePath(), OpenSceneMode.Single);
@@ -74,7 +75,7 @@ public class firstRiddleSolver : MonoBehaviour
         else 
         {
             Debug.Log("[Error! Failed to load scene");
-        }
+        }*/
 
     }
 
