@@ -72,7 +72,10 @@ public class jailWalls : MonoBehaviour
         }
         RevealBallInsideWall();
         yield return new WaitForSeconds(2);
-        breakWallByBall();
+        if (Application.isEditor)
+        {
+            breakWallByBall();
+        }
     }
 
     public void breakWallByBall()
