@@ -12,8 +12,8 @@ public class KeyboardButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        keyboard = GetComponent<Keyboard>();
-        buttonTxt = GetComponent<TextMeshProUGUI>();
+        keyboard = GetComponentInParent<Keyboard>();
+        buttonTxt = GetComponentInChildren<TextMeshProUGUI>();
         if (buttonTxt.text.Length == 1)
         {
             NameToButtonTxt();
