@@ -28,10 +28,10 @@ public class GameDataLogger : MonoBehaviour
     User user;
     Leaderboard lead;
     List<string> columnList = new List<string>();
+    int loggerCount = 0, RIDDLES_COUNT = 3;
     float startGameTime, endGameTime;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         user = new User
         {
@@ -41,34 +41,14 @@ public class GameDataLogger : MonoBehaviour
             totalGameTime = 0,
         };
 
-        // define the names of the custom datapoints we want to log
-        // trial number, participant ID, trial start/end time are logged automatically
-        /*        columnList = new List<string>
-                { 
-                    "1st_riddle_start_time",
-                    "1st_riddle_end_time",
-                    "2nd_riddle_start_time",
-                    "2nd_riddle_end_time",
-                    "3rd_riddle_start_time",
-                    "3rd_riddle_end_time",
-                    "total_game_time",
-                };*/
-
-        // initialise trial logger
         trialLogger = GetComponent<TrialLogger>();
         trialLogger.Initialize(user._id.ToString(), columnList);
-        StartLogging();
-        startGameTime = Time.time;
-        FinishLogging();
+    }
 
-        StartLogging();
-        FinishLogging();
-
-        StartLogging();
-        FinishLogging();
-        endGameTime = Time.time + 4;
-
-        FinishLoggingAfterWin();
+    // Start is called before the first frame update
+    void Start()
+    {
+        // FinishLoggingAfterWin();
     }
 
     int getUserID()
@@ -129,22 +109,33 @@ public class GameDataLogger : MonoBehaviour
 
     public void StartLogging()
     {
-        trialLogger.StartTrial();
+        if (loggerCount == 0)
+        {
+            startGameTime = Time.time;
+        }
+        trialLogger.StartTrial(-1f);
     }
 
     public void FinishLogging()
     {
-        trialLogger.EndTrial();
+        if (loggerCount == 0)
+        {
+            endGameTime = Time.time;
+        }
+        trialLogger.EndTrial(-1f);
+        FinishLoggingAfterWin();
+        loggerCount++;
+        QuitBtn();
     }
 
     public void FinishLoggingAfterWin()
     {
         // Calc the total game time played by the usera
-        StartLogging();
-        FinishLogging();
+        user.totalGameTime = endGameTime - startGameTime;
+        trialLogger.StartTrial(startGameTime);
+        trialLogger.EndTrial(endGameTime);
 
         // Update the leaderboard file
-        user.totalGameTime = endGameTime - startGameTime;
         saveToLeaderboardFile();
     }
 
@@ -242,4 +233,13 @@ public class GameDataLogger : MonoBehaviour
         return Application.persistentDataPath;
     }
 
+    public void QuitBtn()
+    {
+            // TODO: Quit the Game
+    #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+    #else
+                            Application.Quit();
+    #endif
+    }
 }

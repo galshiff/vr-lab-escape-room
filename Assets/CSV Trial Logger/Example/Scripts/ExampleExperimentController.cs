@@ -29,7 +29,7 @@ public class ExampleExperimentController : MonoBehaviour {
         trialLogger.Initialize(participantID, columnList);
 
         // here we start the first trial immediately, you can start it at any time
-        trialLogger.StartTrial();
+        trialLogger.StartTrial(-1);
 
         // now we update the trial number on screen
         trialNumDisplay.UpdateTrialNumber(trialLogger.currentTrialNumber);
@@ -51,7 +51,7 @@ public class ExampleExperimentController : MonoBehaviour {
         trialLogger.trial["sphere_y"] = spherePosition.y.ToString();
 
         // now we end the trial, which stores data for this trial, then increments the trial number
-        trialLogger.EndTrial();
+        trialLogger.EndTrial(-1);
 
         // if we are at the max number of trials, we quit the game
         // note: CSV is saved on exit automatically
@@ -59,7 +59,7 @@ public class ExampleExperimentController : MonoBehaviour {
 
         // here we could have some time for feedback, loading the next trial etc
         // but we will just start the next trial immediately
-        trialLogger.StartTrial();
+        trialLogger.StartTrial(-1);
 
         // now we update the trial number on screen
         trialNumDisplay.UpdateTrialNumber(trialLogger.currentTrialNumber);

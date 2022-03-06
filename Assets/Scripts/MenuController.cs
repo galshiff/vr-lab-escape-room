@@ -8,6 +8,8 @@ public class MenuController : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject walls;
+    public UnityEvent onStart;
+
 
     void Start()
     {
@@ -60,6 +62,7 @@ public class MenuController : MonoBehaviour
 
     public void firstRiddle() 
     {
+        onStart.Invoke();
         mainMenu.SetActive(false);
         walls.SetActive(true);
     }

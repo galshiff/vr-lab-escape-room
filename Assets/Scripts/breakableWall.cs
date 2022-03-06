@@ -17,6 +17,7 @@ public class breakableWall : MonoBehaviour
 
     public UnityEvent onWinTriggr;
     public GameObject PartyMonsterEndLevelWin;
+    public UnityEvent onFinish;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +70,7 @@ public class breakableWall : MonoBehaviour
         ExplodeWall(initPos);
         // Enable the teleportation in order to move on to the next riddle
         GameObject.Find("OVRPlayerController").gameObject.transform.GetChild(2).gameObject.SetActive(true);
+        onFinish.Invoke();
         onWinTriggr.Invoke();
     }
 
