@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameDataLogger : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class GameDataLogger : MonoBehaviour
     User user;
     Leaderboard lead;
     List<string> columnList = new List<string>();
-    int loggerCount = 0, RIDDLES_COUNT = 3;
+    int loggerCount = 0, RIDDLES_COUNT = 2;
     float startGameTime, endGameTime;
 
     void Awake()
@@ -118,14 +119,13 @@ public class GameDataLogger : MonoBehaviour
 
     public void FinishLogging()
     {
-        if (loggerCount == 0)
+        if (loggerCount == RIDDLES_COUNT-1)
         {
             endGameTime = Time.time;
+            FinishLoggingAfterWin();
         }
         trialLogger.EndTrial(-1f);
-        FinishLoggingAfterWin();
         loggerCount++;
-        QuitBtn();
     }
 
     public void FinishLoggingAfterWin()
@@ -137,6 +137,9 @@ public class GameDataLogger : MonoBehaviour
 
         // Update the leaderboard file
         saveToLeaderboardFile();
+
+        // Move player to the leaderboard scene
+        SceneManager.LoadScene("LeaderboardScene");
     }
 
     public void saveToLeaderboardFile()
@@ -231,15 +234,5 @@ public class GameDataLogger : MonoBehaviour
         }
 
         return Application.persistentDataPath;
-    }
-
-    public void QuitBtn()
-    {
-            // TODO: Quit the Game
-    #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-    #else
-                            Application.Quit();
-    #endif
     }
 }

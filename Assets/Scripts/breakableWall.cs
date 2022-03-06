@@ -18,6 +18,7 @@ public class breakableWall : MonoBehaviour
     public UnityEvent onWinTriggr;
     public GameObject PartyMonsterEndLevelWin;
     public UnityEvent onFinish;
+    public UnityEvent onStartSecondRiddle;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +73,7 @@ public class breakableWall : MonoBehaviour
         GameObject.Find("OVRPlayerController").gameObject.transform.GetChild(2).gameObject.SetActive(true);
         onFinish.Invoke();
         onWinTriggr.Invoke();
+        onStartSecondRiddle.Invoke();
     }
 
         void CreateBrick(int x, int y, int z, Vector3 initPos)
