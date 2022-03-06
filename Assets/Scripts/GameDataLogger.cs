@@ -74,7 +74,7 @@ public class GameDataLogger : MonoBehaviour
     int getUserID()
     {
         // Create / Open folder for the JSON file
-        string userIDFolderPath = Application.dataPath + "/StreamingAssets" + "/jsonFiles";
+        string userIDFolderPath = getDataLocation() + "/jsonFiles";
         if (!Directory.Exists(userIDFolderPath))
         {
             Directory.CreateDirectory(userIDFolderPath);
@@ -151,7 +151,7 @@ public class GameDataLogger : MonoBehaviour
     public void saveToLeaderboardFile()
     {
         // Create / Open folder for the JSON file
-        string userIDFolderPath = Application.dataPath + "/StreamingAssets" + "/jsonFiles";
+        string userIDFolderPath = getDataLocation() + "/jsonFiles";
         if (!Directory.Exists(userIDFolderPath))
         {
             Directory.CreateDirectory(userIDFolderPath);
@@ -229,6 +229,17 @@ public class GameDataLogger : MonoBehaviour
             string column = columnList[i];
             trialLogger.trial[column] = user.times[i].ToString();
         }
+    }
+
+
+    string getDataLocation()
+    {
+        if (Application.isEditor)
+        {
+            return Application.dataPath + "/StreamingAssets";
+        }
+
+        return Application.persistentDataPath;
     }
 
 }

@@ -48,16 +48,11 @@ public class Leaderboard : MonoBehaviour
     Leaderboardscores getLeaderboard()
     {
         // Open folder for the JSON file
-        string userIDFolderPath = Application.dataPath + "/StreamingAssets" + "/jsonFiles";
-        if (!Directory.Exists(userIDFolderPath))
-        {
-            return null; // not exist..
-        }
 
-        string usersIDFilePath = userIDFolderPath + "/leaderboard.json";
+        string usersIDFilePath = getDataLocation() + "/jsonFiles/leaderboard.json";
         if (!File.Exists(usersIDFilePath))
         {
-            // TODO
+            return null;
         }
 
         string usersLeaderboard = File.ReadAllText(usersIDFilePath);
@@ -76,5 +71,13 @@ public class Leaderboard : MonoBehaviour
         return "User " + userID + "\n" + score + " Seconds";
     }
 
+    string getDataLocation()
+    {
+        if (Application.isEditor)
+        {
+            return Application.dataPath + "/StreamingAssets";
+        }
 
+        return Application.persistentDataPath;
+    }
 }
