@@ -47,6 +47,6 @@ public class buttonVR : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("labEscapeRoomScene");
+        SceneManager.LoadScene("labEscapeRoomScene", LoadSceneMode.Single);
     }
 }
