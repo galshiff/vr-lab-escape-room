@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/labEscapeRoomScene.unity
     guid: 99e1455633423ad47a5bed9186b3a14f
   - enabled: 1
