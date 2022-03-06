@@ -18,7 +18,7 @@ public class Keyboard : MonoBehaviour
 
     public void InsertChar(string c)
     {
-        inputField.text += caps;
+        inputField.text += c;
     }
 
     public void DeleteChar()

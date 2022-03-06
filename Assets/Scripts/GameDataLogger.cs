@@ -125,7 +125,6 @@ public class GameDataLogger : MonoBehaviour
         trialLogger.EndTrial(-1f);
         FinishLoggingAfterWin();
         loggerCount++;
-        QuitBtn();
     }
 
     public void FinishLoggingAfterWin()
@@ -231,15 +230,5 @@ public class GameDataLogger : MonoBehaviour
         }
 
         return Application.persistentDataPath;
-    }
-
-    public void QuitBtn()
-    {
-            // TODO: Quit the Game
-    #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-    #else
-                            Application.Quit();
-    #endif
     }
 }
