@@ -139,10 +139,16 @@ public class GameDataLogger : MonoBehaviour
         saveToLeaderboardFile();
 
         // Move player to the leaderboard scene
+        StartCoroutine(LoadLeadScene(6f));
+    }
+
+    IEnumerator LoadLeadScene(float time)
+    {
+        yield return new WaitForSeconds(time);
         SceneManager.LoadScene("LeaderboardScene");
     }
 
-    public void saveToLeaderboardFile()
+        public void saveToLeaderboardFile()
     {
         // Create / Open folder for the JSON file
         string userIDFolderPath = getDataLocation() + "/jsonFiles";
