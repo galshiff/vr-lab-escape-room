@@ -1312,7 +1312,7 @@ GameObject:
   - component: {fileID: 1342003572}
   - component: {fileID: 1342003571}
   m_Layer: 5
-  m_Name: First Place Txt
+  m_Name: First-Place-Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1326,8 +1326,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342003569}
   m_LocalRotation: {x: -0.0017034361, y: -0.9982451, z: -0.0004570445, w: -0.05919086}
-  m_LocalPosition: {x: 0, y: 0, z: 0.648}
-  m_LocalScale: {x: 0.01, y: 0.02, z: 0.02}
+  m_LocalPosition: {x: 0, y: 0, z: 0.64799994}
+  m_LocalScale: {x: 0.01, y: 0.020000003, z: 0.02}
   m_Children: []
   m_Father: {fileID: 1854316943}
   m_RootOrder: 0
@@ -2257,6 +2257,7 @@ GameObject:
   - component: {fileID: 1854316946}
   - component: {fileID: 1854316945}
   - component: {fileID: 1854316944}
+  - component: {fileID: 1854316947}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2347,6 +2348,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1854316947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854316942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d99b80b8401724ead2ad192cb138f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1999271480
 GameObject:
   m_ObjectHideFlags: 0
