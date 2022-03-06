@@ -10,7 +10,9 @@ public class Keyboard : MonoBehaviour
     public GameObject normalButtons;
     public GameObject capsButtons;
     public UnityEvent onWin;
+    public UnityEvent onFinish;
     private bool caps;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,7 @@ public class Keyboard : MonoBehaviour
             if (inputField.text == "8")
             {
                 inputField.text = "Correct!";
+                onFinish.Invoke();
                 onWin.Invoke();
             }
             else
