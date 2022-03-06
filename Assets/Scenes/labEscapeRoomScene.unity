@@ -2633,7 +2633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &71160930
 Transform:
   m_ObjectHideFlags: 0
@@ -2702,7 +2702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AimButton: 4
-  TeleportButton: 4096
+  TeleportButton: 4
   FastTeleport: 0
   LeftHand: {fileID: 529036367}
   RightHand: {fileID: 529036366}
@@ -8664,7 +8664,7 @@ MonoBehaviour:
           m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
   PartyMonsterEndLevelWin: {fileID: 1721827463}
 --- !u!1001 &372905388
 PrefabInstance:
