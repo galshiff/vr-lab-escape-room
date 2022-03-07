@@ -18,6 +18,7 @@ public class breakableWall : MonoBehaviour
     public UnityEvent onWinTriggr;
     public GameObject PartyMonsterEndLevelWin;
     public UnityEvent onFinish;
+    public UnityEvent GenerateNextRiddle;
     public UnityEvent onStartSecondRiddle;
 
     // Start is called before the first frame update
@@ -74,9 +75,26 @@ public class breakableWall : MonoBehaviour
         onFinish.Invoke();
         onWinTriggr.Invoke();
         onStartSecondRiddle.Invoke();
+
+        if (Application.isEditor)
+        {
+            gameObject.SetActive(true);
+            StartCoroutine(waitTillNextSolver(7f));
+            gameObject.transform.position = new Vector3(-1000f, -1000f, -1000f);
+        }
     }
 
-        void CreateBrick(int x, int y, int z, Vector3 initPos)
+    IEnumerator waitTillNextSolver(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameObject.Find("OVRPlayerController").gameObject.transform.position = new Vector3(-5.65999985f, 2.01f, 38.3899994f);
+        GameObject.Find("OVRPlayerController").gameObject.transform.Rotate(0, 100f, 0, Space.Self);
+        GenerateNextRiddle.Invoke();
+    }
+
+
+
+    void CreateBrick(int x, int y, int z, Vector3 initPos)
     {
         // Generate new cube as brick
         GameObject brick = GameObject.CreatePrimitive(PrimitiveType.Cube);

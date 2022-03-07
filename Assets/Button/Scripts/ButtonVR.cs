@@ -13,6 +13,8 @@ public class ButtonVR : MonoBehaviour
     public GameObject button;
     public UnityEvent onPress;
     public UnityEvent onRelease;
+    public ButtonVR enter;
+    public UnityEvent thirdSolver;
     GameObject presser;
     AudioSource sound;
     bool isPressed;
@@ -51,6 +53,37 @@ public class ButtonVR : MonoBehaviour
         sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         sphere.transform.localPosition = new Vector3(0, 1, 2);
         sphere.AddComponent<Rigidbody>();
+    }
+
+    public void Solver(Collider c)
+    {
+        if (Application.isEditor)
+        {
+
+            StartCoroutine(waitBeforePress(2f, c));
+            StartCoroutine(waitBeforeEnter(3f, c));
+            StartCoroutine(waitTillNextSolver(6f));
+        }
+    }
+    IEnumerator waitBeforePress(float time, Collider c)
+    {
+        yield return new WaitForSeconds(time);
+        isPressed = false;
+        OnTriggerEnter(c);
+        OnTriggerExit(c);
+    }
+
+    IEnumerator waitBeforeEnter(float time, Collider c)
+    {
+        yield return new WaitForSeconds(time);
+        enter.OnTriggerEnter(c);
+        enter.OnTriggerExit(c);
+    }
+
+    IEnumerator waitTillNextSolver(float time)
+    {
+        yield return new WaitForSeconds(time);
+        thirdSolver.Invoke();
     }
 
 }
