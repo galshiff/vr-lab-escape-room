@@ -9,9 +9,9 @@ public class Keyboard : MonoBehaviour
     public TMP_InputField inputField;
     public GameObject normalButtons;
     public GameObject capsButtons;
-    public GameObject rocket;
     public UnityEvent onWin;
     public UnityEvent onFinish;
+    public UnityEvent onStartSecondRiddle;
     private bool caps;
 
 
@@ -51,7 +51,7 @@ public class Keyboard : MonoBehaviour
                 inputField.text = "Correct!";
                 onFinish.Invoke();
                 onWin.Invoke();
-                rocket.SetActive(true);
+                onStartSecondRiddle.Invoke();
             }
             else
             {

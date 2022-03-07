@@ -113,6 +113,12 @@ public class OVRGrabbable : MonoBehaviour
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+        if (gameObject.name == "Vial")
+        {
+            GameObject clone = Instantiate(gameObject);
+            clone.SetActive(true);
+        } 
     }
 
 	/// <summary>

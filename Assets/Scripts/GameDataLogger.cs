@@ -29,8 +29,8 @@ public class GameDataLogger : MonoBehaviour
     User user;
     Leaderboard lead;
     List<string> columnList = new List<string>();
-    int loggerCount = 0, RIDDLES_COUNT = 2;
-    float startGameTime, endGameTime;
+    int loggerCount = 0, RIDDLES_COUNT = 3;
+    float startGameTime = -1, endGameTime = -1;
 
     void Awake()
     {
@@ -88,14 +88,14 @@ public class GameDataLogger : MonoBehaviour
             _id = -1,
             times = new float[7],
             time_idx = 0,
-            totalGameTime = -1,
+            totalGameTime = 100000000000000,
         };
         User third = new User
         {
             _id = -1,
             times = new float[7],
             time_idx = 0,
-            totalGameTime = -1,
+            totalGameTime = 100000000000001,
         };
 
         lead = new Leaderboard
@@ -119,18 +119,22 @@ public class GameDataLogger : MonoBehaviour
 
     public void FinishLogging()
     {
+        trialLogger.EndTrial(-1f);
         if (loggerCount == RIDDLES_COUNT-1)
         {
             endGameTime = Time.time;
-            FinishLoggingAfterWin();
+            // FinishLoggingAfterWin();
         }
-        trialLogger.EndTrial(-1f);
         loggerCount++;
     }
 
     public void FinishLoggingAfterWin()
     {
         // Calc the total game time played by the usera
+        if (endGameTime < 0)
+        {
+            endGameTime = Time.time;
+        }
         user.totalGameTime = endGameTime - startGameTime;
         trialLogger.StartTrial(startGameTime);
         trialLogger.EndTrial(endGameTime);
@@ -200,25 +204,25 @@ public class GameDataLogger : MonoBehaviour
         }
     }
 
-    int getScorePosition(float score, float high, float mid , float low)
+    int getScorePosition(float score, float best, float mid , float low)
     {
-        if (score < low)
+        if (score > low)
         {
             return 3;
         }
 
-        if (score > low && score < mid)
+        if (score < low && score < mid)
         {
             return 2;
         }
 
 
-        if (score > mid && score < high)
+        if (score < mid && score > best)
         {
             return 1;
         }
 
-        // score > high
+        // score < best
         return 0;
     }
 
