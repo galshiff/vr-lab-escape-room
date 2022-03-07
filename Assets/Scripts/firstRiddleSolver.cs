@@ -53,17 +53,6 @@ public class firstRiddleSolver : MonoBehaviour
         breakWalls.Invoke();
     }
 
-        void applyGravity(GameObject obj)
-    {
-        float desiredYPos = -3.6f;
-/*        while (obj.transform.position.y > desiredYPos)
-        {
-            obj.transform.position = new Vector3(obj.transform.position.x,
-                                                 obj.transform.position.y - 0.0001f,
-                                                 obj.transform.position.z);
-        }*/
-    }
-
     public void ResetRidleState()
     {
         /*string sceneSavedPath = GetScenePath();

@@ -4964,6 +4964,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  enter: {fileID: 0}
+  thirdSolver:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &166825594
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10618,6 +10622,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  GenerateNextRiddle:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1860918238}
+        m_TargetAssemblyTypeName: ButtonVR, Assembly-CSharp
+        m_MethodName: Solver
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 460783085}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Collider, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onStartSecondRiddle:
     m_PersistentCalls:
       m_Calls:
@@ -10772,6 +10791,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rocket: {fileID: 2013871239}
+  vial: {fileID: 848968802}
 --- !u!1 &369012794
 GameObject:
   m_ObjectHideFlags: 0
@@ -16972,6 +16992,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  enter: {fileID: 0}
+  thirdSolver:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &569948563
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24871,19 +24895,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7979559664150284589, guid: 9695eaedb278f9d428e902d1b076c5a7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7979559664150284589, guid: 9695eaedb278f9d428e902d1b076c5a7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7979559664150284589, guid: 9695eaedb278f9d428e902d1b076c5a7, type: 3}
-      propertyPath: m_LocalRotation.y
       value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7979559664150284589, guid: 9695eaedb278f9d428e902d1b076c5a7, type: 3}
-      propertyPath: m_LocalRotation.z
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979559664150284589, guid: 9695eaedb278f9d428e902d1b076c5a7, type: 3}
+      propertyPath: m_LocalRotation.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979559664150284589, guid: 9695eaedb278f9d428e902d1b076c5a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7979559664150284589, guid: 9695eaedb278f9d428e902d1b076c5a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24891,7 +24915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7979559664150284589, guid: 9695eaedb278f9d428e902d1b076c5a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 2790
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 7979559664150284589, guid: 9695eaedb278f9d428e902d1b076c5a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -42737,6 +42761,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  enter: {fileID: 0}
+  thirdSolver:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &1225590096
 AudioSource:
   m_ObjectHideFlags: 0
@@ -45313,6 +45341,38 @@ PrefabInstance:
     - target: {fileID: 8500832628456391400, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500832628456391411, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
+      propertyPath: enter
+      value: 
+      objectReference: {fileID: 1770239828}
+    - target: {fileID: 8500832628456391411, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
+      propertyPath: thirdSolver.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500832628456391411, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
+      propertyPath: thirdSolver.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500832628456391411, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
+      propertyPath: thirdSolver.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 361269476}
+    - target: {fileID: 8500832628456391411, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
+      propertyPath: thirdSolver.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500832628456391411, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
+      propertyPath: thirdSolver.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Solver
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500832628456391411, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
+      propertyPath: thirdSolver.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CauldronCollider, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500832628456391411, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
+      propertyPath: thirdSolver.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
@@ -61630,7 +61690,7 @@ GameObject:
   - component: {fileID: 1770239828}
   m_Layer: 14
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: enter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61680,6 +61740,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  enter: {fileID: 0}
+  thirdSolver:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &1770239829
 AudioSource:
   m_ObjectHideFlags: 0
@@ -64561,6 +64625,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4189708718966864, guid: 4f6977220c151404d9b6645f08a4a362, type: 3}
   m_PrefabInstance: {fileID: 1855831591}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1860918238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8500832628456391411, guid: 0e955485280481446a8bcf89d1ccd041, type: 3}
+  m_PrefabInstance: {fileID: 1308594029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593d3ac6e08f4468b819285084eac4dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1862476212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74679,6 +74754,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  enter: {fileID: 0}
+  thirdSolver:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7698386423454254450
 GameObject:
   m_ObjectHideFlags: 0
